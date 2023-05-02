@@ -7,7 +7,7 @@
         }
     ],
     "scripts": {
-        "test": "vendor/bin/phpunit tests/ --colors"
+        "test": "vendor/bin/phpunit tests --colors"
     },
     "autoload": {
         "psr-4": {
