@@ -1,0 +1,15 @@
+{
+    "name": "williamtome/php-algoritmos",
+    "description": "Learn about algorithms with PHP.",
+    "authors": [
+        {
+            "name": "William W. Tomé"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\": "src/Core/"
+        }
+    },
+    "require": {}
+}
