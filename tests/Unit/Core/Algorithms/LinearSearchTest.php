@@ -10,20 +10,21 @@ class LinearSearchTest extends TestCase
     /**
      * @dataProvider numbers
      */
-    public function testAttributes($array)
+    public function testAttributes(array $numbers)
     {
-        var_dump($array); die;
-        $linearSearch = new LinearSearch($array);
+        $linearSearch = new LinearSearch($numbers);
 
         $this->assertEquals(
-            $array,
+            $numbers,
             $linearSearch->getNumbers()
         );
     }
 
-    public function testShouldReturnNumberFoundIndex()
+    /**
+     * @dataProvider numbers
+     */
+    public function testShouldReturnNumberFoundIndex(array $numbers)
     {
-        $numbers = [10, 20, 80, 30, 60, 50, 110, 100, 130, 170];
         $numberToSearch = 110;
         $expectedIndex = 6;
 
@@ -33,9 +34,11 @@ class LinearSearchTest extends TestCase
         $this->assertEquals($expectedIndex, $numberFound);
     }
 
-    public function testShouldNotReturnNumberFoundIndex()
+    /**
+     * @dataProvider numbers
+     */
+    public function testShouldNotReturnNumberFoundIndex(array $numbers)
     {
-        $numbers = [10, 20, 80, 30, 60, 50, 110, 100, 130, 170];
         $numberToSearch = 171;
         $expectedIndex = -1;
 
@@ -45,10 +48,12 @@ class LinearSearchTest extends TestCase
         $this->assertEquals($expectedIndex, $numberFound);
     }
 
-    public function numbers()
+    public static function numbers()
     {
         return [
-            [10, 20, 80, 30, 60, 50, 110, 100, 130, 170],
+            [
+                [10, 20, 80, 30, 60, 50, 110, 100, 130, 170],
+            ],
         ];
     }
 }
