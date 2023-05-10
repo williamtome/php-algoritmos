@@ -48,6 +48,16 @@ class LinearSearchTest extends TestCase
         $this->assertEquals($expectedIndex, $numberFound);
     }
 
+    /**
+     * @dataProvider numbers
+     */
+    public function testShouldReturnErrorMessageWhenNumberToSearchIsEmpty(array $numbers)
+    {
+        $this->expectExceptionMessage('É obrigatório fornecer o número a ser procurado.');
+        $linearSearch = new LinearSearch($numbers);
+        $linearSearch->search(null);
+    }
+
     public static function numbers()
     {
         return [
